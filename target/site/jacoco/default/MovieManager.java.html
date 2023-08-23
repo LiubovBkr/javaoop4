@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">javaqamvn1</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">MovieManager.java</span></div><h1>MovieManager.java</h1><pre class="source lang-java linenums">public class MovieManager {
+    private Movie[] movies;
+    private int limit;
+
+    public MovieManager() {
+<span class="fc" id="L6">        this(5);</span>
+<span class="fc" id="L7">    }</span>
+
+<span class="fc" id="L9">    public MovieManager(int limit) {</span>
+<span class="fc" id="L10">        this.limit = limit;</span>
+<span class="fc" id="L11">        movies = new Movie[0];</span>
+<span class="fc" id="L12">    }</span>
+
+    public void addMovie(Movie movie) {
+<span class="fc" id="L15">        Movie[] newMovies = new Movie[movies.length + 1];</span>
+<span class="fc" id="L16">        System.arraycopy(movies, 0, newMovies, 0, movies.length);</span>
+<span class="fc" id="L17">        newMovies[movies.length] = movie;</span>
+<span class="fc" id="L18">        movies = newMovies;</span>
+<span class="fc" id="L19">    }</span>
+
+    public Movie[] findAll() {
+<span class="fc" id="L22">        return movies;</span>
+    }
+
+    public Movie[] findLast() {
+<span class="fc" id="L26">        int resultLength = Math.min(limit, movies.length);</span>
+<span class="fc" id="L27">        Movie[] result = new Movie[resultLength];</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        for (int i = 0; i &lt; resultLength; i++) {</span>
+<span class="fc" id="L29">            result[i] = movies[movies.length - 1 - i];</span>
+        }
+<span class="fc" id="L31">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
